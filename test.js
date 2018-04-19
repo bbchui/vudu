@@ -51,32 +51,3 @@ getDataRangeFromServer(0, 1).then(pageData => console.log(pageData))
 
 getDataRangeFromServer(55, 99).then(pageData => console.log(pageData))
 // returns [55..99], calls getPageFromServer 2 times with pageIndex 2, 3
-
-
-
-// Without promises and recusively
-//
-// function getPageFromServer1(pageIndex) {
-//   let pageData = [];
-//   for (let i = pageIndex * 25; i < ((pageIndex + 1) * 25); i++) {
-//     pageData.push(i);
-//   }
-//   return pageData
-// }
-//
-// function getDataRangeFromServer1(startIndex, endIndex) {
-//   console.log("gets called");
-//   if (startIndex >= endIndex) {
-//     return []
-//   }
-//
-//   let pageIndex = Math.floor(startIndex / 25);
-//   let pageData = getPageFromServer1(pageIndex);
-//
-//   pageData = pageData.concat(getDataRangeFromServer1(startIndex + 25, endIndex))
-//
-//   return pageData.slice(pageData.indexOf(startIndex), pageData.indexOf(endIndex) + 1)
-//
-// }
-
-// console.log(getDataRangeFromServer1(0,49))
